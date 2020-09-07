@@ -11,7 +11,6 @@ public class HeatingRod {
     private static float rightTemperature = 0;
     private static boolean isEquilibrium = true;
 
-
     public static void setRodLength (int rodLength) {
         HeatingRod.rodLength = rodLength;
     }
@@ -44,7 +43,7 @@ public class HeatingRod {
         return isEquilibrium;
     }
 
-    public static int getInput () {
+    public static void setRodData() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("What is the size of the array? ");
@@ -55,7 +54,12 @@ public class HeatingRod {
 
         System.out.print("Temperature at the right: ");
         setRightTemperature((float) scanner.nextInt());
+    }
 
+    public static int getInput () {
+        Scanner scanner = new Scanner(System.in);
+
+        setRodData();
         System.out.print("How many iterations should we run? ");
         return scanner.nextInt();
     }
