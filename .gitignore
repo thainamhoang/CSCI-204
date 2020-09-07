@@ -4,3 +4,7 @@
 # VSCode config files
 
 /.vscode
+
+# Workspace files
+
+/HeatingRod
