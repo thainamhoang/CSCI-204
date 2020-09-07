@@ -28,6 +28,22 @@ public class HeatingRod {
         HeatingRod.isEquilibrium = isEquilibrium;
     }
 
+    public static int getRodLength() {
+        return rodLength;
+    }
+
+    public static float getLeftTemperature() {
+        return leftTemperature;
+    }
+
+    public static float getRightTemperature() {
+        return rightTemperature;
+    }
+
+    public static boolean isIsEquilibrium() {
+        return isEquilibrium;
+    }
+
     public static int getInput () {
         Scanner scanner = new Scanner(System.in);
 
@@ -45,19 +61,19 @@ public class HeatingRod {
     }
 
     public static float[] initializeRod () {
-        float[] initialRod = new float[rodLength];
+        float[] initialRod = new float[getRodLength()];
 
-        initialRod[0] = leftTemperature;
-        initialRod[rodLength - 1] = rightTemperature;
+        initialRod[0] = getLeftTemperature();
+        initialRod[getRodLength() - 1] = getRightTemperature();
 
-        Arrays.fill(initialRod, 1, rodLength - 1, ROOM_TEMPERATURE);
+        Arrays.fill(initialRod, 1, getRodLength() - 1, ROOM_TEMPERATURE);
 
         return initialRod;
     }
 
     public static float[] updateTemps (float[] currentRod) {
         float[] tempRod = currentRod.clone();
-        for (int i = 1; i < currentRod.length - 1; i++) {
+        for (int i = 1; i < getRodLength() - 1; i++) {
             tempRod[i] = (currentRod[i - 1] + currentRod[i] + currentRod[i + 1]) / 3;
         }
         return tempRod;
@@ -65,9 +81,9 @@ public class HeatingRod {
 
     public static boolean checkStable (float[] currentRod) {
         boolean isStable = true;
-        for (int i = 1; i < currentRod.length - 1; i++) {
+        for (int i = 1; i < getRodLength() - 1; i++) {
             if (((currentRod[i - 1] + currentRod[i] + currentRod[i + 1]) / 3) != currentRod[i]) {
-                isStable = false;;
+                isStable = false;
             }
         }
         return isStable;
@@ -78,7 +94,7 @@ public class HeatingRod {
         setIsEquilibrium(true);
         for (int i = 0; i < iteration; i++) {
             setIsEquilibrium(checkStable(tempRod));
-            if (isEquilibrium) {
+            if (isIsEquilibrium()) {
                 break;
             }
             tempRod = updateTemps(tempRod);
@@ -96,13 +112,13 @@ public class HeatingRod {
          * This is why StringBuilder performs better than StringBuffer.
          */
 
-        StringBuilder result = new StringBuilder ("");
+        StringBuilder result = new StringBuilder ();
         for (float temperature: currentRod) {
             String str = String.format("%.01f", temperature);
             result.append(str);
             result.append(", ");
         }
-        return (result.toString().substring(0, result.length() - 2));
+        return (result.substring(0, result.length() - 2));
     }
 
     public static void main(String[] args) {
