@@ -1,10 +1,10 @@
 package heatingRod;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class HeatingRod {
-    final static int ROOM_TEMPERATURE = 20;
+    final static float ROOM_TEMPERATURE = 20;
 
     private static int rodLength = 0;
     private static float leftTemperature = 0;
@@ -39,7 +39,7 @@ public class HeatingRod {
         return rightTemperature;
     }
 
-    public static boolean isIsEquilibrium() {
+    public static boolean getIsEquilibrium() {
         return isEquilibrium;
     }
 
@@ -70,7 +70,9 @@ public class HeatingRod {
         initialRod[0] = getLeftTemperature();
         initialRod[getRodLength() - 1] = getRightTemperature();
 
-        Arrays.fill(initialRod, 1, getRodLength() - 1, ROOM_TEMPERATURE);
+        for (int i = 1; i < getRodLength() - 1; i++) {
+            initialRod[i] = ROOM_TEMPERATURE;
+        }
 
         return initialRod;
     }
@@ -98,7 +100,7 @@ public class HeatingRod {
         setIsEquilibrium(true);
         for (int i = 0; i < iteration; i++) {
             setIsEquilibrium(checkStable(tempRod));
-            if (isIsEquilibrium()) {
+            if (getIsEquilibrium()) {
                 break;
             }
             tempRod = updateTemps(tempRod);
@@ -109,20 +111,27 @@ public class HeatingRod {
     public static String toString (float[] currentRod) {
 
         /* I choose to use StringBuilder instead of String or StringBuffer because:
-         * 1. String is immutable, so if I perform a concatenation it will create another String,
+         * 1. String is immutable, so if we perform a string concatenation it will create another String,
          * results in increasing file size and affecting the runtime.
          * 2. StringBuffer is synchronous, meaning that it can be called by a single thread at a time,
          * while StringBuilder is non-synchronous and can be called in multiple threads at a time.
          * This is why StringBuilder performs better than StringBuffer.
          */
 
-        StringBuilder result = new StringBuilder ();
-        for (float temperature: currentRod) {
-            String str = String.format("%.01f", temperature);
-            result.append(str);
-            result.append(", ");
+//        StringBuilder result = new StringBuilder ();
+//        for (float temps: currentRod) {
+//            String str = String.format("%.01f", temps);
+//            result.append(str).append(", ");
+//        }
+//        return (result.substring(0, result.length() - 2));
+
+        String result = "";
+        for (float temps: currentRod) {
+            String currentValue = new DecimalFormat("#.0").format(temps);
+            result = result.concat(currentValue).concat(", ");
         }
         return (result.substring(0, result.length() - 2));
+
     }
 
     public static void main(String[] args) {
