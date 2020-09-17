@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67622940-c8be-4000-a28f-100e7c13b884" name="Default Changelist" comment="">
+    <list default="true" id="67622940-c8be-4000-a28f-100e7c13b884" name="Default Changelist" comment="Change `StringBuilder` to `String`. Change using for-each instead of for loop.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HeatingRod/src/heatingRod/HeatingRod.java" beforeDir="false" afterPath="$PROJECT_DIR$/HeatingRod/src/heatingRod/HeatingRod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HeatingRod/heatingRod/HeatingRod.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HeatingRod/heatingRod/HeatingRod.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,19 +67,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HeatingRodTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HeatingRod" />
       <extension name="coverage">
@@ -113,7 +98,10 @@
       <option name="presentableId" value="Default" />
       <updated>1599464094342</updated>
       <workItem from="1599464096034" duration="6569000" />
-      <workItem from="1599583179473" duration="2996000" />
+      <workItem from="1599583179473" duration="3121000" />
+      <workItem from="1599626195456" duration="14000" />
+      <workItem from="1600245793534" duration="12000" />
+      <workItem from="1600342143339" duration="213000" />
     </task>
     <task id="LOCAL-00001" summary="Add getter and optimize code">
       <created>1599475141962</created>
@@ -129,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599475725381</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Change `StringBuilder` to `String`. Change using for-each instead of for loop.">
+      <created>1599621707236</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599621707236</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,49 +146,54 @@
     <MESSAGE value="Add getter" />
     <MESSAGE value="Add getter and optimize code" />
     <MESSAGE value="Cut down method length to &lt;= 9 lines" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cut down method length to &lt;= 9 lines" />
+    <MESSAGE value="Change `StringBuilder` to `String`. Change using for-each instead of for loop." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change `StringBuilder` to `String`. Change using for-each instead of for loop." />
   </component>
   <component name="WindowStateProjectService">
     <state x="653" y="208" key="#com.intellij.ide.util.MemberChooser" timestamp="1599474688334">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="653" y="208" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599474688334" />
-    <state width="1638" height="290" key="GridCell.Tab.0.bottom" timestamp="1599607464464">
+    <state width="1638" height="290" key="GridCell.Tab.0.bottom" timestamp="1599621741966">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1638" height="290" key="GridCell.Tab.0.bottom/-2560.-390.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1599607464464" />
-    <state width="1638" height="290" key="GridCell.Tab.0.bottom/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599475673654" />
+    <state width="1638" height="290" key="GridCell.Tab.0.bottom/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599621741966" />
     <state width="1638" height="290" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1599583919644" />
     <state width="1638" height="290" key="GridCell.Tab.0.bottom/0.23.1680.951/-138.-1057.1920.1057@0.23.1680.951" timestamp="1599552166703" />
-    <state width="1638" height="290" key="GridCell.Tab.0.center" timestamp="1599607464462">
+    <state width="1638" height="290" key="GridCell.Tab.0.center" timestamp="1599621741964">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1638" height="290" key="GridCell.Tab.0.center/-2560.-390.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1599607464462" />
-    <state width="1638" height="290" key="GridCell.Tab.0.center/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599475673652" />
+    <state width="1638" height="290" key="GridCell.Tab.0.center/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599621741964" />
     <state width="1638" height="290" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1599583919643" />
     <state width="1638" height="290" key="GridCell.Tab.0.center/0.23.1680.951/-138.-1057.1920.1057@0.23.1680.951" timestamp="1599552166702" />
-    <state width="1638" height="290" key="GridCell.Tab.0.left" timestamp="1599607464461">
+    <state width="1638" height="290" key="GridCell.Tab.0.left" timestamp="1599621741963">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1638" height="290" key="GridCell.Tab.0.left/-2560.-390.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1599607464461" />
-    <state width="1638" height="290" key="GridCell.Tab.0.left/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599475673651" />
+    <state width="1638" height="290" key="GridCell.Tab.0.left/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599621741963" />
     <state width="1638" height="290" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1599583919642" />
     <state width="1638" height="290" key="GridCell.Tab.0.left/0.23.1680.951/-138.-1057.1920.1057@0.23.1680.951" timestamp="1599552166701" />
-    <state width="1638" height="290" key="GridCell.Tab.0.right" timestamp="1599607464463">
+    <state width="1638" height="290" key="GridCell.Tab.0.right" timestamp="1599621741965">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1638" height="290" key="GridCell.Tab.0.right/-2560.-390.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1599607464463" />
-    <state width="1638" height="290" key="GridCell.Tab.0.right/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599475673653" />
+    <state width="1638" height="290" key="GridCell.Tab.0.right/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599621741965" />
     <state width="1638" height="290" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1599583919643" />
     <state width="1638" height="290" key="GridCell.Tab.0.right/0.23.1680.951/-138.-1057.1920.1057@0.23.1680.951" timestamp="1599552166702" />
-    <state x="440" y="261" key="Vcs.Push.Dialog.v2" timestamp="1599475734600">
+    <state x="440" y="261" key="Vcs.Push.Dialog.v2" timestamp="1599621712626">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="261" key="Vcs.Push.Dialog.v2/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599475734600" />
+    <state x="440" y="261" key="Vcs.Push.Dialog.v2/0.0.1680.1050/-138.-1080.1920.1080@0.0.1680.1050" timestamp="1599621712626" />
     <state x="537" y="394" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1599464195320">
       <screen x="0" y="23" width="1680" height="951" />
     </state>
     <state x="537" y="394" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1680.951/-138.-1057.1920.1057@0.23.1680.951" timestamp="1599464195320" />
+    <state x="208" y="76" key="new project wizard" timestamp="1600342368694">
+      <screen x="0" y="23" width="1680" height="951" />
+    </state>
+    <state x="208" y="76" key="new project wizard/0.23.1680.951/-138.-1057.1920.1057@0.23.1680.951" timestamp="1600342368694" />
     <state x="505" y="233" key="search.everywhere.popup" timestamp="1599474671676">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
