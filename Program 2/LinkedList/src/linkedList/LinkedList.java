@@ -76,12 +76,12 @@ public class LinkedList {
         if (head == null) {
             return "Empty list";
         }
-        StringBuilder result = new StringBuilder(" " + head.getData());
-        Node currNode = head;
-        while (currNode != null) {
-            result.append(", ").append(currNode.getData());
-            currNode = currNode.getNext();
+        String result = "" + head.getData();
+        Node nextNode = head.getNext();
+        while (nextNode != null) {
+            result += ", " + nextNode.getData();
+            nextNode = nextNode.getNext();
         }
-        return result.toString();
+        return result;
     }
 }

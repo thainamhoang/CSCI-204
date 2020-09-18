@@ -2,7 +2,7 @@ package linkedList;
 
 public class Driver {
     public static void main( String[ ] args) {
-        LinkedList mainList = new LinkedList( new int[] {2, 3,5,7,13} );
+        LinkedList mainList = new LinkedList( new int[] {2,3,5,7,13} );
         System.out.println("Some of the first primes: " + mainList.toString());
         LinkedList singleItem = new LinkedList( new int[] {11} );
         mainList.insertListAfterKey( singleItem, 7);
