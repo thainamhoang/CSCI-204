@@ -1,20 +1,33 @@
 package linkedList;
 
 public class LinkedList {
+    /**
+     * Initialize Node head and tail for Linked List
+     */
     private Node head;
     private Node tail;
 
-    public LinkedList (int[] newData) {
+    /**
+     * Linked List constructor: taking array of int and converting it to Linked List
+     *
+     * @param list
+     */
+    public LinkedList (int[] list) {
         head = null;
         tail = null;
 
-        for (int element: newData) {
+        for (int element: list) {
             Node newNode = new Node(element);
-            listAppend(newNode);
+            append(newNode);
         }
     }
 
-    public void listAppend (Node node) {
+    /**
+     * Append method: add a single Node to the end of Linked List
+     *
+     * @param node
+     */
+    public void append (Node node) {
         if (head == null) {
             head = node;
         } else {
@@ -23,7 +36,12 @@ public class LinkedList {
         tail = node;
     }
 
-    public void listPrepend (Node node) {
+    /**
+     * Prepend method: add a single Node to the front of Linked List
+     *
+     * @param node
+     */
+    public void prepend (Node node) {
       if (head == null) {
           head = node;
           tail = node;
@@ -33,10 +51,16 @@ public class LinkedList {
       }
     }
 
-    public Node search (int key) {
+    /**
+     * Search method: linearly search for the given value
+     *
+     * @param value
+     * @return
+     */
+    public Node search (int value) {
         Node currNode = head;
         while (currNode != null) {
-            if (currNode.getData() == key) {
+            if (currNode.getData() == value) {
                 return currNode;
             }
             currNode = currNode.getNext();
@@ -44,24 +68,23 @@ public class LinkedList {
         return null;
     }
 
-    public void insertAfterNode (Node currNode, Node newNode) {
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else if (currNode == tail) {
-            tail.setNext(newNode);
-            tail = newNode;
-        } else {
-            newNode.setNext(currNode.getNext());
-            currNode.setNext((newNode));
-        }
-    }
-
+    /**
+     * insertListAfterNode method: insert a list after a given node
+     *
+     * @param list
+     * @param currNode
+     */
     public void insertListAfterNode (LinkedList list, Node currNode) {
         list.tail.setNext(currNode.getNext());
         currNode.setNext(list.head);
     }
 
+    /**
+     * insertListAfterKey method: insert a list after a given key (index)
+     *
+     * @param list
+     * @param key
+     */
     public void insertListAfterKey (LinkedList list, int key) {
         Node searchValue = search(key);
         if (searchValue == null) {
@@ -74,7 +97,7 @@ public class LinkedList {
     // toString() method overriding
     public String toString() {
         if (head == null) {
-            return "Empty list";
+            return "<empty list>";
         }
         String result = "" + head.getData();
         Node nextNode = head.getNext();
