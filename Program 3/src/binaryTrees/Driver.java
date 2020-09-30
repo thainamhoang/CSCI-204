@@ -13,7 +13,7 @@ public class Driver {
     public static String evaluateTree( BinaryTree searchTree ) {
         float sum = 0;
         for (int i = 0; i < EXPERIMENT_SIZE; i++) {
-            searchTree.search((long) i);
+            searchTree.search(i);
             sum += searchTree.getNumberOfNodesChecked();
             searchTree.clearNumberOfNodesChecked();
         }
@@ -23,9 +23,8 @@ public class Driver {
 
     /** This will insert half of the numbers in the given range of the provided tree. */
     private static void insertNodes( BinaryTree tree, int lowerBound, int upperBound ) {
-        TreeNode insertNode = null;
         for (int i = 0; i < upperBound / 2; i++) {
-            insertNode = new TreeNode(randomNum.randomBetween(lowerBound, upperBound));
+            TreeNode insertNode = new TreeNode(randomNum.randomBetween(lowerBound, upperBound));
             tree.insert(insertNode);
         }
     }
@@ -33,10 +32,27 @@ public class Driver {
     /** Insert half of all the numbers within each "rangeSize" chunk from 1 to 1000. */
     public static BinaryTree buildTree( int rangeSize ) {
         BinaryTree tree = new BinaryTree();
-        if (tree.getSizeOfTree() != 500) {
+        if (rangeSize == EXPERIMENT_SIZE) {
             insertNodes(tree, 1, rangeSize);
+        } else if (rangeSize == 100) {
+            insertNodesWithBatch(tree, rangeSize);
+        } else if (rangeSize == 10) {
+            insertNodesWithBatch(tree, rangeSize);
         }
         return tree;
+    }
+
+    private static void insertNodesWithBatch (BinaryTree tree, int rangeSize) {
+        int lower = 1;
+        int upper = rangeSize;
+
+        for (int i = 0; i < EXPERIMENT_SIZE / rangeSize; i++) {
+            for (int j = 0; j < rangeSize / 2; j++) {
+                insertNodes(tree, lower, upper);
+            }
+            lower += rangeSize;
+            upper += rangeSize;
+        }
     }
 
     /** A testing method, intended to be used with the debugger to verify that your
