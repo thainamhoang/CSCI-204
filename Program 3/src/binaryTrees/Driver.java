@@ -1,5 +1,7 @@
 package binaryTrees;
 
+import com.sun.source.tree.Tree;
+
 public class Driver {
 
     public final static int EXPERIMENT_SIZE = 1000;
@@ -12,7 +14,7 @@ public class Driver {
 
     public static String evaluateTree( BinaryTree searchTree ) {
         float sum = 0;
-        for (int i = 0; i < EXPERIMENT_SIZE; i++) {
+        for (int i = 1; i <= EXPERIMENT_SIZE; i++) {
             searchTree.search(i);
             sum += searchTree.getNumberOfNodesChecked();
             searchTree.clearNumberOfNodesChecked();
@@ -23,7 +25,7 @@ public class Driver {
 
     /** This will insert half of the numbers in the given range of the provided tree. */
     private static void insertNodes( BinaryTree tree, int lowerBound, int upperBound ) {
-        for (int i = 0; i < upperBound / 2; i++) {
+        for (int i = 0; i < (upperBound - lowerBound + 1) / 2; i++) {
             TreeNode insertNode = new TreeNode(randomNum.randomBetween(lowerBound, upperBound));
             tree.insert(insertNode);
         }
