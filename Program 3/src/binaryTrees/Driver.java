@@ -20,12 +20,14 @@ public class Driver {
             searchTree.clearNumberOfNodesChecked();
         }
         float average = sum / EXPERIMENT_SIZE;
-        return String.format("The number of nodes inspected, on average, was %.2f", average);
+        return String.format("The number of nodes inspected, on average, was %.2f.", average);
     }
 
     /** This will insert half of the numbers in the given range of the provided tree. */
     private static void insertNodes( BinaryTree tree, int lowerBound, int upperBound ) {
-        for (int i = 0; i < (upperBound - lowerBound + 1) / 2; i++) {
+        int bound = (upperBound - lowerBound + 1) / 2;
+        int targetTreeSize = tree.getSizeOfTree() + bound;
+        while (tree.getSizeOfTree() < targetTreeSize) {
             TreeNode insertNode = new TreeNode(randomNum.randomBetween(lowerBound, upperBound));
             tree.insert(insertNode);
         }
@@ -34,27 +36,10 @@ public class Driver {
     /** Insert half of all the numbers within each "rangeSize" chunk from 1 to 1000. */
     public static BinaryTree buildTree( int rangeSize ) {
         BinaryTree tree = new BinaryTree();
-        if (rangeSize == EXPERIMENT_SIZE) {
-            insertNodes(tree, 1, rangeSize);
-        } else if (rangeSize == 100) {
-            insertNodesWithBatch(tree, rangeSize);
-        } else if (rangeSize == 10) {
-            insertNodesWithBatch(tree, rangeSize);
+        for (int i = 1; i <= EXPERIMENT_SIZE; i += rangeSize) {
+            insertNodes(tree, i, i + rangeSize - 1);
         }
         return tree;
-    }
-
-    private static void insertNodesWithBatch (BinaryTree tree, int rangeSize) {
-        int lower = 1;
-        int upper = rangeSize;
-
-        for (int i = 0; i < EXPERIMENT_SIZE / rangeSize; i++) {
-            for (int j = 0; j < rangeSize / 2; j++) {
-                insertNodes(tree, lower, upper);
-            }
-            lower += rangeSize;
-            upper += rangeSize;
-        }
     }
 
     /** A testing method, intended to be used with the debugger to verify that your
